@@ -1,0 +1,68 @@
+DZIAŁAJĄCE Jednolinijkowe
+execute as @a[nbt={SelectedItem:{id:"minecraft:diamond_sword"}}] run say cos
+#komenda tworząca powietrze wokół ciebie
+execute as @a[nbt={SelectedItem:{id:"minecraft:diamond_sword"}}] at @s run fill ~-5 ~ ~-5 ~5 ~5 ~5 minecraft:air
+#komenda tworząca podłogę pod tobą w kwadracie 7x7
+execute as @a[nbt={SelectedItem:{id:"minecraft:wooden_hoe"}}] at @s run fill ~3 ~-1 ~3 ~-3 ~-1 ~-3 minecraft:diamond_block
+#komenda zabijająca wszystkie moby w promieniu 25 bloków
+execute as @a[nbt={SelectedItem:{id:"minecraft:trident"}}] at @s run kill @e[type=!player,distance=..25]
+#komenda służąca jako więzienie w miejscu
+execute as @a[nbt={SelectedItem:{id:"minecraft:hopper"}}] run tp @p ~ ~ ~ to stoisz w miejscu
+#komenda tworząca tnt jako diamond_block
+/summon tnt ~ ~ ~ {fuse:80s,block_state:{Name:"minecraft:diamond_block"}}
+#komenda dająca dowolny enchantment
+/give @p diamond_pickaxe[minecraft:enchantments={"minecraft:efficiency":255,"minecraft:unbreaking":255},custom_name="kilofik"]
+/give @p diamond_sword[minecraft:enchantments={"minecraft:sharpness":255,"minecraft:unbreaking":255},item_name="mieczyk"]
+/give @p totem_of_undying[item_name="kreatywny"]
+/kursywa albo prosta czcionka
+#komenda po selected item id + item_name
+v1) execute as @a[nbt={SelectedItem:{components:{"minecraft:item_name":'"mieczyk"'}}}] run say cos
+v2) execute as @a[nbt={SelectedItem:{components:{"minecraft:item_name":'"mieczyk"'},id:"minecraft:diamond_sword"}}] run say cos
+#villager shield
+execute as @e[type=villager] at @p run tp @s ~1 ~ ~
+#ultrafast tp
+execute as @a[nbt={SelectedItem:{id:"minecraft:hopper"}}] at @s run tp @p ~5 ~ ~
+#itemek w całym eq
+execute as @a[nbt={Inventory:[{components:{"minecraft:item_name":'"szybki"'},id:"minecraft:diamond_hoe"}]}] run effect give @p minecraft:speed 10 10
+#item lock z mozliwoscia dropa
+execute as artysta_menelaos run item replace entity artysta_menelaos inventory.26 with minecraft:chain #hotbar.8-pasek
+#jeżeli w wodzie:
+execute as @a at @s if block ~ ~ ~ minecraft:water run kill @p
+#komenda spawnujaca wiesniaka co sie nie rusza i nie ma efektów
+/summon minecraft:villager ~ ~ ~ {NoAI:1,Rotation:[0f,0f]}
+Działające złożone
+#funkcja która zmienia mnie na creative moda jak mam w ekwipunku item w odpowiednim slocie
+execute as @a[nbt={Inventory:[{Slot:17b,components:{"minecraft:item_name":'"kreatywny"'},id:"minecraft:totem_of_undying"}]}] run say karicha
+#jak nie mam to survival mode
+execute as @a[nbt=!{Inventory:[{Slot:17b,components:{"minecraft:item_name":'"kreatywny"'},id:"minecraft:totem_of_undying"}]}] run gamemode survival @s
+#na danym obszarze cos
+execute as @a[x=30,y=63,z=-136,dx=0,dy=0,dz=0] run say cos
+NIEDZIAŁAJĄCE
+
+Przydałby się zewnętrzy countdown od 5 do 1 który zostaje przerwany.
+Ok countdown zostawiamy, teraz tylko dodac dwa rozne outcomy sytuacji: 
+mamy komende która szuka nam tridenta. Teraz trzeba napisac komendę, która wywoła opóźnienie
+execute as @a[nbt={SelectedItem:{components:{"minecraft:item_name":'"killer"'},id:"minecraft:trident"}}] 
++chain setblock 8 63 -38 redstone_block replace
++chain setblock 0 69 0 air replace
+ 
+the countdown must be started once and broken when trident is no longer in selecteditem
+
+wywołanie może być tylko jedno na 5 sekund
+
+1. Komenda ma sprawdzać cały czas czy trident jest jako selected item
+
+Automatycznie jezeli zadziala to przerywa komende z repeata 
+
+2. Jezeli jest to ma być wyswietlone odliczanie, które zostaje przerwane gdy trident jest =! selecteditem
+3. Po wykonaniu odliczania maja zostac zabite stwory execute as @p at @s run kill @e[type=!player,distance=..25] jako condition ze cooldown nie zostal przerwany
+
+execute as @a run item replace entity @a inventory.26 with minecraft:diamond{Locked:8b}
+execute as artysta_menelaos run item replace entity artysta_menelaos inventory.8 with minecraft:chain 
+
+
+
+
+
+
+

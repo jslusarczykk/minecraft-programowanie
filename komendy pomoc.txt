@@ -1,0 +1,17 @@
+@p - najblizszy gracz
+@a - all players
+@r - random player
+@e all entities
+@s executing entity
+
+For example, an entity with data {Pos:[1d,2d,3d],Tags:["a","b"]} can be targeted by @e[nbt={Pos:[3d,2d,1d]}] or even just @e[nbt={Pos:[2d]}] even though the former represents a totally different position and the latter is not a valid position at all. Note that @e[nbt={Tags:[]}] can't match it, because an empty list can only match empty list.
+The requested data tags in the target entity/block/storage must match exactly for the provided tags to pass, including the data type .  The same is true for string of JSON text, which must be exactly the same to match the provided tag (e.g. @e[nbt={CustomName:'"a"'}] will not match any entity, it must be @e[nbt={CustomName:"{\"text\":\"a\"}"}] or @e[nbt={CustomName:'{"text":"a"}'}]).
+
+Item name: nazwa itemka nie stworzona przez gracza
+Custom name: nazwa itemka zmieniana przez gracza
+
+/data get entity @s SelectedItem //bardzo ważne
+
+
+https://minecraft.wiki/w/Category:Top-level_data_pages
+https://minecraft.wiki/w/Enchanting#Summary_of_enchantments

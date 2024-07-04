@@ -1,0 +1,18 @@
+wegiel przepala 8
+197 -6 43 - jakies dziwne cos
+236 7 -26 - amethyst biome
+100 118 33 - moj domek
+350 -42 211 - spawner zombie
+-122 168 -32 najblizsza lawa
+903 -29 39 skeleton spawner
+
+320 -26 37 - kopalnia wyjscie
+494 -27 186 zielony biom
+736 109 654 - lilliowy biom nowy
+
+
+1194 -35 -588 stronghold
+
+END CITY
+
+387 ? 1395

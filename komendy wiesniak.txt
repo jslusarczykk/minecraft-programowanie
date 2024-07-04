@@ -1,0 +1,39 @@
+#pamiętać ze za 3 bookshelfy daje
+#kill all mobs of certain type
+/kill @e[type=minecraft:villager]
+/kill @e[type=minecraft:iron_golem]
+#ogólna
+COUNT Z MAŁEJ LITERY XDXDXD
+/summon villager ~ ~1 ~ {VillagerData:{profession:librarian,level:2,type:plains},CustomName:"\"John\"",Offers:{Recipes:[{buy:{id:emerald,Default_quantity:64,count:64,Quantity:64,Amount:64},sell:{id:wheat,Count:1},rewardExp:0b,maxUses:9999999}]}}
+#moja
+/summon villager ~ ~1 ~ {VillagerData:{profession:librarian,level:5,type:plains},Offers:{Recipes:[{buy:{id:wheat,Count:1},sell:{components:{"minecraft:stored_enchantments":{levels:{"minecraft:fortune":3}}},id:"minecraft:enchanted_book",Count:1},rewardExp:20b,maxUses:9999999}]}}
+#moja 2
+/summon villager ~ ~1 ~ {VillagerData:{profession:librarian,level:2,type:plains},Offers:{Recipes:[{buy:{id:"wheat",Count:1},sell:{components:{"minecraft:stored_enchantments":{levels:{"minecraft:fortune":3}}},id:"minecraft:enchanted_book",Count:1},rewardExp:20b,maxUses:9999999},{buy:{id:"dirt",Count:1},sell:{id:"minecraft:emerald",Count:64},rewardExp:20b,maxUses:9999999}]}}
+#moja 3
+/summon villager ~ ~1 ~ {VillagerData:{profession:librarian,level:2,type:plains},Offers:{Recipes:[{buy:{id:"minecraft:emerald",count:17},sell:{id:"minecraft:bookshelf",count:1},rewardExp:20b,maxUses:10},{buy:{id:"minecraft:emerald",count:5},sell:{components:{"minecraft:stored_enchantments":{levels:{"minecraft:looting":3}}},id:"minecraft:enchanted_book",count:1},rewardExp:20b,maxUses:10}]}}
+
+https://minecraft.fandom.com/wiki/Tutorials/Useful_commands
+#działa lets go
+/summon villager ~ ~1 ~ {VillagerData:{profession:librarian,level:2,type:plains},CustomName:"\"John\"",Offers:{Recipes:[{buy:{id:"minecraft:emerald",count:17},sell:{id:"minecraft:bookshelf",count:1},rewardExp:20b,maxUses:10,xp:10},{buy:{id:"minecraft:emerald",count:5},sell:{id:"minecraft:enchanted_book",count:1,tag:{StoredEnchantments:[{id:"minecraft:looting",lvl:3}]}},rewardExp:20b,maxUses:10,xp:10}]}} 
+
+#jak zrobić wiesniaka z levelem novice
+/summon villager ~ ~1 ~ {VillagerData:{profession:librarian,level:1,type:plains},Offers:{Recipes:[{buy:{id:"minecraft:emerald",count:17},sell:{id:"minecraft:bookshelf",count:1},rewardExp:20b,maxUses:10,xp:10},{buy:{id:"minecraft:emerald",count:5},sell:{id:"minecraft:enchanted_book",count:1,tag:{StoredEnchantments:[{id:"minecraft:looting",lvl:3}]}},rewardExp:20b,maxUses:10,xp:10}]},xp:10} 
+
+#pusty enchanted book
+/data merge entity @e[type=villager,limit=1] {Offers:{Recipes:[{buy:{id:"minecraft:emerald",count:17},sell:{id:"minecraft:bookshelf",count:3},rewardExp:20b,maxUses:10,xp:10},{buy:{id:"minecraft:emerald",count:5},sell:{id:"minecraft:enchanted_book",count:1,components:{"minecraft:stored_enchantments":{levels:{"minecraft:looting":3}}}},rewardExp:20b,maxUses:10,xp:10}]}}
+
+#ostateczna komenda, targetująca bibliotekarzy
+/data merge entity @e[type=villager,limit=1,nbt={VillagerData:{profession:"minecraft:librarian",level:1}}] {Offers:{Recipes:[{buy:{id:"minecraft:emerald",count:17},sell:{id:"minecraft:bookshelf",count:3},rewardExp:20b,maxUses:10,xp:10},{buy:{id:"minecraft:emerald",count:5},sell:{id:"minecraft:enchanted_book",count:1,components:{"minecraft:stored_enchantments":{levels:{"minecraft:looting":3}}}},rewardExp:20b,maxUses:10,xp:10}]}} 
+
+/execute as @s run data merge entity @e[type=villager,limit=1,nbt={VillagerData:{profession:"minecraft:librarian"}}] {Offers:{Recipes:[{buy:{id:"minecraft:emerald",count:17},sell:{id:"minecraft:bookshelf",count:3},rewardExp:20b,maxUses:10,xp:10},{buy:{id:"minecraft:emerald",count:5},sell:{id:"minecraft:enchanted_book",count:1,components:{"minecraft:stored_enchantments":{levels:{"minecraft:looting":3}}}},rewardExp:20b,maxUses:10,xp:10}]}} 
+
+mmon minecraft:villager ~ ~1 ~ {Silent:1b,Invulnerable:1b,CustomName:'{"text":"Wiesniak jebany","color":"gold","bold":true}',Attributes:[{Name:generic.movement_speed,Base:0}],VillagerData:{level:99,profession:"minecraft:weaponsmith",type:"minecraft:plains"},Offers:{Recipes:[{maxUses:100,buy:{id:"minecraft:iron_ingot",Count:3b},buyB:{id:"minecraft:bone",Count:1b},sell:{id:"minecraft:gold_nugget",Count:1b,tag:{display:{Name:'{"text":"Gold Coin","color":"red","bold":true}'}}}}]}}
+
+#ostateczna komenda
+/data merge entity @e[type=villager,limit=1,nbt={VillagerData:{profession:"minecraft:librarian",level:1}}] {Offers:{Recipes:[{buy:{id:"minecraft:emerald",count:17},sell:{id:"minecraft:bookshelf",count:3},rewardExp:20b,maxUses:10,xp:10},{buy:{id:"minecraft:emerald",count:5},buyB:{id:"minecraft:book",Count:1b},sell:{id:"minecraft:enchanted_book",count:1,components:{"minecraft:stored_enchantments":{levels:{"minecraft:looting":3}}}},rewardExp:20b,maxUses:10,xp:10}]}}
+
+/data merge entity @e[type=villager,limit=1,nbt={VillagerData:{profession:"minecraft:weaponsmith",level:1}}] {Offers:{Recipes:[{buy:{id:"minecraft:diamond_block",count:16},buyB:{id:"minecraft:redstone_block",count:64},sell:{id:"minecraft:diamond_pickaxe",count:1,components:{"minecraft:enchantments":{levels:{"minecraft:efficiency":255,"minecraft:unbreaking":255}}}},rewardExp:20b,maxUses:10,xp:10}]}}
+
+/data merge entity @e[type=villager,limit=1,nbt={VillagerData:{profession:"minecraft:weaponsmith",level:1}}] {Offers:{Recipes:[{buy:{id:"minecraft:diamond_block",count:16},buyB:{id:"minecraft:redstone_block",count:64},sell:{id:"minecraft:diamond_pickaxe",count:1,components:{"minecraft:enchantments":{levels:{"minecraft:efficiency":255,"minecraft:unbreaking":255}}}},rewardExp:20b,maxUses:10,xp:10}]},CustomName:'{"text":"Wiesniak jebany","color":"gold","bold":true}',VillagerData:{profession:weaponsmith,level:69}}
+
+

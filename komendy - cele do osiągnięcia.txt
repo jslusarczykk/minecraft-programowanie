@@ -1,0 +1,25 @@
+1) onclick effect with specific item - wtedy nie mozna przemieszczac itema i ma locka, not droppable to pewnie jakas regula dla graczy czyli players cant drop items
+2)item not droppable
+
+1) #Opóźnienie tridenta killera o 5 sekund z ostrzeżeniem
+title @p title "5"
+execute as @p at @s run tp @s ~ ~30 ~
+3)cooldown na tarczy wiesniaka jak zginie i zrespienie nowego co 10 sekund
+4)teleport losowy po mapie
+#randomowe teleportowanie x z 
+/scoreboard objectives add RandomX dummy
+/scoreboard objectives add RandomZ dummy
+4)ogarnac
+#scoreboard
+#plugin world edit - z maćkiem do ogarniecia
+6) opóźnienie 3 sekundy na kazda komende po aktywacji aby nie generowac lagow
+7) advanced - generowanie randomowego parkouru
+8) kopiowanie blocku po dotknieciu go
+9) kopiowanie całej struktury na 4 clicki (istnieje struckture block)
+
+/scoreboard objectives add holdingTrident dummy
+execute as @a[nbt={SelectedItem:{id:"minecraft:trident", tag:{display:{Name:'{"text":"killer"}'}}}}] run scoreboard players set @s holdingTrident 1
+execute as @a unless entity @s[nbt={SelectedItem:{id:"minecraft:trident", tag:{display:{Name:'{"text":"killer"}'}}}}] run scoreboard players set @s holdingTrident 0
+scoreboard players test @a[scores={holdingTrident=1}] holdingTrident 1 1
+execute as @a[scores={holdingTrident=1}] run title @s actionbar {"text":"Countdown: ","extra":[{"score":{"name":"@s","objective":"holdingTrident"}}]}
+execute as @a[scores={holdingTrident=1}] run scoreboard players remove @s holdingTrident 1
